@@ -1,0 +1,16 @@
+version: '3'
+services:
+  backend:
+    image: ambientum/php:7.3-nginx
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 8080:8080
+      - 8083:8083
+  frontend:
+    image: ambientum/node:11
+    command: npm run hot
+    volumes:
+      - ./:/var/www/app
+    ports:
+      - 8081:8080
